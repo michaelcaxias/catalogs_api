@@ -1,4 +1,4 @@
-package com.michaelcaxias.catalogs.api.src.domain.service.categories.mappers;
+package com.michaelcaxias.catalogs.api.src.domain.services.categories.mappers;
 
 import com.michaelcaxias.catalogs.api.src.controllers.dto.CategoryDto;
 import com.michaelcaxias.catalogs.api.src.models.Category;

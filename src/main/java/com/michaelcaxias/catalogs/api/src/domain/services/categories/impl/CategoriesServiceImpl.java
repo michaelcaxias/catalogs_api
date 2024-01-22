@@ -1,8 +1,8 @@
-package com.michaelcaxias.catalogs.api.src.domain.service.categories.impl;
+package com.michaelcaxias.catalogs.api.src.domain.services.categories.impl;
 
 import com.michaelcaxias.catalogs.api.src.controllers.dto.CategoryDto;
-import com.michaelcaxias.catalogs.api.src.domain.service.categories.CategoriesService;
-import com.michaelcaxias.catalogs.api.src.domain.service.categories.mappers.CategoriesMapper;
+import com.michaelcaxias.catalogs.api.src.domain.services.categories.CategoriesService;
+import com.michaelcaxias.catalogs.api.src.domain.services.categories.mappers.CategoriesMapper;
 import com.michaelcaxias.catalogs.api.src.models.Category;
 import com.michaelcaxias.catalogs.api.src.repositories.CategoriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
