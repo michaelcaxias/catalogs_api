@@ -1,5 +1,6 @@
 package com.michaelcaxias.catalogs.api.src.controllers;
 
+import com.michaelcaxias.catalogs.api.src.controllers.dto.CategoryDto;
 import com.michaelcaxias.catalogs.api.src.domain.service.categories.CategoriesService;
 import com.michaelcaxias.catalogs.api.src.models.Category;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class CategoriesController {
 
 
     @PostMapping("/categories")
-    public Category registerCategory(@RequestBody Category category) {
+    public Category registerCategory(@RequestBody CategoryDto category) {
         return service.registerCategory(category);
     }
 }
