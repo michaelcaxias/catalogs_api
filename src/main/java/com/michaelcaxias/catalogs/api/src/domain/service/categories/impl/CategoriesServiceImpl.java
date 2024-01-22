@@ -17,7 +17,7 @@ public class CategoriesServiceImpl implements CategoriesService {
     private CategoriesMapper mapper;
 
     @Override
-    public Category registerCategory(CategoryDto category) {
+    public Category registerCategory(final CategoryDto category) {
         final var categoryModel = mapper.map(category);
 
         return repository.insert(categoryModel);

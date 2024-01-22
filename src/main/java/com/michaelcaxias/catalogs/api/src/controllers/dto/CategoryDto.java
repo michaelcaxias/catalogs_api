@@ -1,15 +1,17 @@
 package com.michaelcaxias.catalogs.api.src.controllers.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
-import lombok.NonNull;
 
 @Builder
 public record CategoryDto(
-    @NonNull
+    @NotBlank(message = "Title is required")
     String title,
-    @NonNull
+
+    @NotNull(message = "Owner is required")
     Integer owner,
-    @NonNull
+    @NotBlank(message = "Description is required")
     String description
 ) {
 }
