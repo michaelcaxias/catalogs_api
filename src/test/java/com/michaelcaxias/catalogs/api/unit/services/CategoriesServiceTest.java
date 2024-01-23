@@ -80,7 +80,7 @@ public class CategoriesServiceTest extends UnitTest {
         return CategoryDto.builder()
                 .title("Category")
                 .description("Category description")
-                .owner(1)
+                .ownerId(1)
                 .build();
     }
 
@@ -88,7 +88,7 @@ public class CategoriesServiceTest extends UnitTest {
         return Category.builder()
                 .title("Category")
                 .description("Category description")
-                .owner(1)
+                .ownerId(1)
                 .build();
     }
 }

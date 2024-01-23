@@ -59,6 +59,9 @@ public class ProductsService implements EntityService<Product, ProductDto> {
             throw new ApiException(BAD_REQUEST_CODE, CATEGORY_NOT_ASSOCIATED, HttpStatus.BAD_REQUEST.value());
         }
 
+        // TODO: the field category must be updated in the catalog consumer service, updating json and this field
+        // TODO: a message will be sent when updated/saved with the values
+
         final var productModel = mapper.map(product, category);
 
         return repository.insert(productModel);
