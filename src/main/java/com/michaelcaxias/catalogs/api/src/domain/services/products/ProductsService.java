@@ -28,8 +28,8 @@ public class ProductsService implements EntityService<Product, ProductDto> {
     private EntityService<Category, CategoryDto> categoryService;
 
     private static final String NOT_FOUND_MESSAGE = "Product not found";
-    private static final String BAD_REQUEST_CODE = "Product bad_request found";
-    private static final String CATEGORY_NOT_ASSOCIATED = "Category not associated with the owner";
+    private static final String BAD_REQUEST_CODE = "bad_request";
+    private static final String CATEGORY_NOT_ASSOCIATED = "Category and Product must have the same owner";
 
     @Override
     public Product findByID(final String id) {
