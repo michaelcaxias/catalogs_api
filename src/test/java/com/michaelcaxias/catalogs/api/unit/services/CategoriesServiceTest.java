@@ -1,7 +1,7 @@
 package com.michaelcaxias.catalogs.api.unit.services;
 
 import com.michaelcaxias.catalogs.api.src.controllers.dto.CategoryDto;
-import com.michaelcaxias.catalogs.api.src.domain.services.categories.impl.CategoriesServiceImpl;
+import com.michaelcaxias.catalogs.api.src.domain.services.categories.CategoriesService;
 import com.michaelcaxias.catalogs.api.src.domain.services.categories.mappers.CategoriesMapperImpl;
 import com.michaelcaxias.catalogs.api.src.models.Category;
 import com.michaelcaxias.catalogs.api.src.repositories.CategoriesRepository;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.doReturn;
 public class CategoriesServiceTest extends UnitTest {
 
     @InjectMocks
-    private CategoriesServiceImpl service;
+    private CategoriesService service;
 
     @Mock
     private CategoriesRepository repository;
@@ -80,7 +80,7 @@ public class CategoriesServiceTest extends UnitTest {
         return CategoryDto.builder()
                 .title("Category")
                 .description("Category description")
-                .owner(1)
+                .ownerId(1)
                 .build();
     }
 
@@ -88,7 +88,7 @@ public class CategoriesServiceTest extends UnitTest {
         return Category.builder()
                 .title("Category")
                 .description("Category description")
-                .owner(1)
+                .ownerId(1)
                 .build();
     }
 }
