@@ -20,25 +20,25 @@ public class CategoriesController {
     private CategoriesService service;
 
     @PostMapping("/categories")
-    public Category registerCategory(final @RequestBody @Valid CategoryDto category) {
-        return service.registerCategory(category);
+    public Category save(final @RequestBody @Valid CategoryDto category) {
+        return service.save(category);
     }
 
     @PutMapping("/categories/{id}")
-    public Category updateCategory(
+    public Category updateById(
             final @PathVariable("id") String id,
             final @RequestBody @Valid CategoryDto category
     ) {
-        return service.updateCategory(id, category);
+        return service.updateByID(id, category);
     }
 
     @GetMapping("/categories/{id}")
-    public Category getCategoryByID(final @PathVariable("id") String id) {
-        return service.getCategoryByID(id);
+    public Category findByID(final @PathVariable("id") String id) {
+        return service.findByID(id);
     }
 
     @GetMapping("/categories")
-    public List<Category> getAllCategories() {
-        return service.getAllCategories();
+    public List<Category> findAll() {
+        return service.findAll();
     }
 }

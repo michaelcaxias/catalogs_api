@@ -20,7 +20,7 @@ public class CategoriesServiceImpl implements CategoriesService {
     private CategoriesMapper mapper;
 
     @Override
-    public Category getCategoryByID(String id) {
+    public Category findByID(String id) {
         final var category = repository.findById(id);
 
         if (category.isEmpty()) {
@@ -31,19 +31,19 @@ public class CategoriesServiceImpl implements CategoriesService {
     }
 
     @Override
-    public List<Category> getAllCategories() {
+    public List<Category> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public Category registerCategory(final CategoryDto category) {
+    public Category save(final CategoryDto category) {
         final var categoryModel = mapper.map(category);
 
         return repository.insert(categoryModel);
     }
 
     @Override
-    public Category updateCategory(final String id, final CategoryDto category) {
+    public Category updateByID(final String id, final CategoryDto category) {
         if (!repository.existsById(id)) {
             throw new NotFoundException("Category not found");
         }

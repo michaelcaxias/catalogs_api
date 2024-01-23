@@ -6,8 +6,8 @@ import com.michaelcaxias.catalogs.api.src.models.Category;
 import java.util.List;
 
 public interface CategoriesService {
-    Category getCategoryByID(String id);
-    List<Category> getAllCategories();
-    Category registerCategory(CategoryDto category);
-    Category updateCategory(String id, CategoryDto category);
+    Category findByID(String id);
+    List<Category> findAll();
+    Category save(CategoryDto category);
+    Category updateByID(String id, CategoryDto category);
 }

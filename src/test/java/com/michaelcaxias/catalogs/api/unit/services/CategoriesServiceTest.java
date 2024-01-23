@@ -35,7 +35,7 @@ public class CategoriesServiceTest extends UnitTest {
         doReturn(getValidCategory()).when(repository).insert(any(Category.class));
         doReturn(getValidCategory()).when(mapper).map(any(CategoryDto.class));
         // Act
-        final var response = service.registerCategory(getValidCategoryDto());
+        final var response = service.save(getValidCategoryDto());
         // Assert
         assertEquals(getValidCategory(), response);
     }
@@ -47,7 +47,7 @@ public class CategoriesServiceTest extends UnitTest {
         doReturn(getValidCategory()).when(repository).save(any(Category.class));
         doReturn(getValidCategory()).when(mapper).map(anyString(), any(CategoryDto.class));
         // Act
-        final var response = service.updateCategory("1", getValidCategoryDto());
+        final var response = service.updateByID("1", getValidCategoryDto());
         // Assert
         assertEquals(getValidCategory(), response);
     }
@@ -57,7 +57,7 @@ public class CategoriesServiceTest extends UnitTest {
         // Arrange
         doReturn(getValidCategories()).when(repository).findAll();
         // Act
-        final var response = service.getAllCategories();
+        final var response = service.findAll();
         // Assert
         assertEquals(getValidCategories(), response);
     }
@@ -67,7 +67,7 @@ public class CategoriesServiceTest extends UnitTest {
         // Arrange
         doReturn(Optional.of(getValidCategory())).when(repository).findById(anyString());
         // Act
-        final var response = service.getCategoryByID("1");
+        final var response = service.findByID("1");
         // Assert
         assertEquals(getValidCategory(), response);
     }
