@@ -11,7 +11,8 @@ public record Category(
     @MongoId
     String id,
     String title,
-    Integer owner,
+    @JsonProperty("owner_id")
+    Integer ownerId,
     String description
 ) {
 }
