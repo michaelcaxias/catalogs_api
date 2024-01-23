@@ -2,6 +2,7 @@ package com.michaelcaxias.catalogs.api.src.config;
 
 
 import com.michaelcaxias.catalogs.api.src.exceptions.ApiError;
+import com.michaelcaxias.catalogs.api.src.exceptions.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,17 @@ public class ControllerExceptionHandler {
                 .code("bad_request")
                 .message(String.valueOf(errorMessages))
                 .status(HttpStatus.BAD_REQUEST.value())
+                .build();
+
+        return ResponseEntity.status(apiException.status()).body(apiException);
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ApiError> handleNotFoundException(final NotFoundException e) {
+        final var apiException = ApiError.builder()
+                .code("not_found")
+                .message(e.getMessage())
+                .status(HttpStatus.NOT_FOUND.value())
                 .build();
 
         return ResponseEntity.status(apiException.status()).body(apiException);

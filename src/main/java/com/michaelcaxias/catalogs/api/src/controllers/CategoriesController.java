@@ -6,10 +6,9 @@ import com.michaelcaxias.catalogs.api.src.models.Category;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static com.michaelcaxias.catalogs.api.src.config.ResourceConfig.ROOT_PATH;
 
@@ -23,5 +22,23 @@ public class CategoriesController {
     @PostMapping("/categories")
     public Category registerCategory(final @RequestBody @Valid CategoryDto category) {
         return service.registerCategory(category);
+    }
+
+    @PutMapping("/categories/{id}")
+    public Category updateCategory(
+            final @PathVariable("id") String id,
+            final @RequestBody @Valid CategoryDto category
+    ) {
+        return service.updateCategory(id, category);
+    }
+
+    @GetMapping("/categories/{id}")
+    public Category getCategoryByID(final @PathVariable("id") String id) {
+        return service.getCategoryByID(id);
+    }
+
+    @GetMapping("/categories")
+    public List<Category> getAllCategories() {
+        return service.getAllCategories();
     }
 }

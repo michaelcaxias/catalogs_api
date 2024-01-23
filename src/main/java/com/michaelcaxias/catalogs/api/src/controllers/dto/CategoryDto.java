@@ -8,7 +8,6 @@ import lombok.Builder;
 public record CategoryDto(
     @NotBlank(message = "Title is required")
     String title,
-
     @NotNull(message = "Owner is required")
     Integer owner,
     @NotBlank(message = "Description is required")

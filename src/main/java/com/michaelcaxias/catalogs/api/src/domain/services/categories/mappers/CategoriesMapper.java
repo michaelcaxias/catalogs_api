@@ -7,4 +7,5 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CategoriesMapper {
     Category map(CategoryDto category);
+    Category map(String id, CategoryDto category);
 }
