@@ -1,7 +1,7 @@
 package com.michaelcaxias.catalogs.api.src.controllers;
 
 import com.michaelcaxias.catalogs.api.src.controllers.dto.CategoryDto;
-import com.michaelcaxias.catalogs.api.src.domain.services.categories.CategoriesService;
+import com.michaelcaxias.catalogs.api.src.domain.services.EntityService;
 import com.michaelcaxias.catalogs.api.src.models.Category;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import static com.michaelcaxias.catalogs.api.src.config.ResourceConfig.ROOT_PATH
 @Validated
 public class CategoriesController {
     @Autowired
-    private CategoriesService service;
+    private EntityService<Category, CategoryDto> service;
 
     @PostMapping("/categories")
     public Category save(final @RequestBody @Valid CategoryDto category) {
