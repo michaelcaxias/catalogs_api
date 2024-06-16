@@ -43,7 +43,7 @@ public class ProductsServiceTest extends UnitTest {
         // Arrange
         doReturn(getValidCategory()).when(categoryService).findByID(anyString());
         doReturn(getValidProduct()).when(repository).insert(any(Product.class));
-        doReturn(getValidProduct()).when(mapper).map(any(ProductDto.class), any(Category.class));
+        doReturn(getValidProduct()).when(mapper).map(any(ProductDto.class));
         // Act
         final var response = service.save(getValidProductDto());
         // Assert
@@ -111,7 +111,7 @@ public class ProductsServiceTest extends UnitTest {
                 .title("Product")
                 .description("Product description")
                 .ownerId(1)
-                .category(getValidCategory())
+                .categoryId("1")
                 .build();
     }
 

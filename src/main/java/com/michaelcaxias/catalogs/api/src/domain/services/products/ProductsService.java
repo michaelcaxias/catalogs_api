@@ -61,7 +61,7 @@ public class ProductsService implements EntityService<Product, ProductDto> {
         // TODO: the field category must be updated in the catalog consumer service, updating json and this field
         // TODO: a message will be sent when updated/saved with the values
 
-        final var productModel = mapper.map(product, category);
+        final var productModel = mapper.map(product);
 
         return repository.insert(productModel);
     }

@@ -21,6 +21,7 @@ public record Product(
         @JsonProperty("owner_id")
         Integer ownerId,
         BigDecimal price,
-        Category category
+        @JsonProperty("category_id")
+        String categoryId
 ) {
 }

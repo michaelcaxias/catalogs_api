@@ -14,7 +14,6 @@ public interface ProductsMapper {
     @Mapping(target = "title", source = "product.title")
     @Mapping(target = "description", source = "product.description")
     @Mapping(target = "ownerId", source = "product.ownerId")
-    @Mapping(target = "category", source = "category")
-    Product map(ProductDto product, Category category);
+    @Mapping(target = "categoryId", source = "product.categoryId")
     Product map(String id, ProductDto product);
 }
