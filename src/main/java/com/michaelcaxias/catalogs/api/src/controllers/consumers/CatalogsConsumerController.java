@@ -19,7 +19,7 @@ public class CatalogsConsumerController {
     @Autowired
     private ConsumerService<Integer> catalogsConsumerService;
 
-    @PostMapping("/catalogs")
+    @PostMapping("/consumer/catalogs")
     public void save(final @RequestBody @Valid MessageDto message) {
         final Integer ownerID = Integer.parseInt(message.message());
 
