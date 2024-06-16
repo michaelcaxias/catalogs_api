@@ -28,7 +28,6 @@ public class ProductsService implements EntityService<Product, ProductDto> {
     private EntityService<Category, CategoryDto> categoryService;
 
     private static final String NOT_FOUND_MESSAGE = "Product not found";
-    private static final String BAD_REQUEST_CODE = "bad_request";
     private static final String CATEGORY_NOT_ASSOCIATED = "Category and Product must have the same owner";
 
     @Override
@@ -56,7 +55,7 @@ public class ProductsService implements EntityService<Product, ProductDto> {
         }
 
         if (!product.ownerId().equals(category.ownerId())) {
-            throw new ApiException(BAD_REQUEST_CODE, CATEGORY_NOT_ASSOCIATED, HttpStatus.BAD_REQUEST.value());
+            throw new ApiException(HttpStatus.FORBIDDEN.name(), CATEGORY_NOT_ASSOCIATED, HttpStatus.FORBIDDEN.value());
         }
 
         // TODO: the field category must be updated in the catalog consumer service, updating json and this field

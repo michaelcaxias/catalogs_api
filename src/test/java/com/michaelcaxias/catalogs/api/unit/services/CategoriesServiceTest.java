@@ -2,7 +2,7 @@ package com.michaelcaxias.catalogs.api.unit.services;
 
 import com.michaelcaxias.catalogs.api.src.controllers.dto.CategoryDto;
 import com.michaelcaxias.catalogs.api.src.domain.services.categories.CategoriesService;
-import com.michaelcaxias.catalogs.api.src.domain.services.categories.mappers.CategoriesMapperImpl;
+import com.michaelcaxias.catalogs.api.src.domain.services.categories.mappers.CategoriesMapper;
 import com.michaelcaxias.catalogs.api.src.models.Category;
 import com.michaelcaxias.catalogs.api.src.repositories.CategoriesRepository;
 import com.michaelcaxias.catalogs.api.unit.UnitTest;
@@ -27,7 +27,7 @@ public class CategoriesServiceTest extends UnitTest {
     private CategoriesRepository repository;
 
     @Mock
-    private CategoriesMapperImpl mapper;
+    private CategoriesMapper mapper;
 
     @Test
     public void when_send_valid_category_then_insert_and_return_category() {
