@@ -1,6 +1,6 @@
 package com.michaelcaxias.catalogs.api.src.controllers.consumers;
 
-import com.michaelcaxias.catalogs.api.src.controllers.dto.CatalogDto;
+import com.michaelcaxias.catalogs.api.src.controllers.dto.MessageDto;
 import com.michaelcaxias.catalogs.api.src.domain.services.ConsumerService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +20,10 @@ public class CatalogsConsumerController {
     private ConsumerService<Integer> catalogsConsumerService;
 
     @PostMapping("/catalogs")
-    public void save(final @RequestBody @Valid CatalogDto message) {
-        catalogsConsumerService.process(message.ownerID());
+    public void save(final @RequestBody @Valid MessageDto message) {
+        final Integer ownerID = Integer.parseInt(message.message());
+
+        catalogsConsumerService.process(ownerID);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.michaelcaxias.catalogs.api.src.domain.services.catalogs.consumers;
 
+import com.michaelcaxias.catalogs.api.src.controllers.dto.MessageDto;
 import com.michaelcaxias.catalogs.api.src.domain.services.ConsumerService;
 import com.michaelcaxias.catalogs.api.src.domain.services.catalogs.mappers.CatalogsConsumerMapper;
 import com.michaelcaxias.catalogs.api.src.models.BaseCatalog;

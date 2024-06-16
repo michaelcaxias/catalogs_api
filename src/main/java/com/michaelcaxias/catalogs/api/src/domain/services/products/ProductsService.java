@@ -27,6 +27,9 @@ public class ProductsService implements EntityService<Product, ProductDto> {
     @Autowired
     private EntityService<Category, CategoryDto> categoryService;
 
+    @Autowired
+    private ProductsNotifierService notifierService;
+
     private static final String NOT_FOUND_MESSAGE = "Product not found";
     private static final String CATEGORY_NOT_ASSOCIATED = "Category and Product must have the same owner";
 
@@ -58,12 +61,13 @@ public class ProductsService implements EntityService<Product, ProductDto> {
             throw new ApiException(HttpStatus.FORBIDDEN.name(), CATEGORY_NOT_ASSOCIATED, HttpStatus.FORBIDDEN.value());
         }
 
-        // TODO: the field category must be updated in the catalog consumer service, updating json and this field
-        // TODO: a message will be sent when updated/saved with the values
-
         final var productModel = mapper.map(product);
 
-        return repository.insert(productModel);
+        final Product productSaved = repository.insert(productModel);
+
+        notifierService.notify(product.ownerID());
+
+        return productSaved;
     }
 
     @Override
@@ -74,6 +78,10 @@ public class ProductsService implements EntityService<Product, ProductDto> {
 
         final var productModel = mapper.map(id, product);
 
-        return repository.save(productModel);
+        final Product productSaved = repository.save(productModel);
+
+        notifierService.notify(product.ownerID());
+
+        return productSaved;
     }
 }
