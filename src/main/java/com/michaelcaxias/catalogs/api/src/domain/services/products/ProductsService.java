@@ -8,7 +8,7 @@ import com.michaelcaxias.catalogs.api.src.exceptions.ApiException;
 import com.michaelcaxias.catalogs.api.src.exceptions.NotFoundException;
 import com.michaelcaxias.catalogs.api.src.models.Category;
 import com.michaelcaxias.catalogs.api.src.models.Product;
-import com.michaelcaxias.catalogs.api.src.repositories.ProductsRepository;
+import com.michaelcaxias.catalogs.api.src.repositories.database.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

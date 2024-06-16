@@ -7,8 +7,9 @@ import com.michaelcaxias.catalogs.api.src.models.Catalog;
 import com.michaelcaxias.catalogs.api.src.models.CatalogItem;
 import com.michaelcaxias.catalogs.api.src.models.Category;
 import com.michaelcaxias.catalogs.api.src.models.Product;
-import com.michaelcaxias.catalogs.api.src.repositories.CategoriesRepository;
-import com.michaelcaxias.catalogs.api.src.repositories.ProductsRepository;
+import com.michaelcaxias.catalogs.api.src.repositories.aws.s3.S3Service;
+import com.michaelcaxias.catalogs.api.src.repositories.database.CategoriesRepository;
+import com.michaelcaxias.catalogs.api.src.repositories.database.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,9 @@ public class CatalogsConsumerService implements ConsumerService<Integer> {
     @Autowired
     private CatalogsConsumerMapper mapper;
 
+    @Autowired
+    private S3Service s3Service;
+
     @Override
     public void process(final Integer ownerID) {
         final List<Category> categories = categoriesRepo.findByOwnerID(ownerID);
@@ -40,5 +44,9 @@ public class CatalogsConsumerService implements ConsumerService<Integer> {
         });
 
         final BaseCatalog fullCatalog = mapper.map(ownerID, catalogs);
+
+        final String key = "catalogs/" + ownerID + ".json";
+
+        s3Service.saveObjectJSON(key, fullCatalog);
     }
 }

@@ -9,7 +9,7 @@ import com.michaelcaxias.catalogs.api.src.exceptions.ApiException;
 import com.michaelcaxias.catalogs.api.src.exceptions.NotFoundException;
 import com.michaelcaxias.catalogs.api.src.models.Category;
 import com.michaelcaxias.catalogs.api.src.models.Product;
-import com.michaelcaxias.catalogs.api.src.repositories.ProductsRepository;
+import com.michaelcaxias.catalogs.api.src.repositories.database.ProductsRepository;
 import com.michaelcaxias.catalogs.api.unit.UnitTest;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

@@ -1,6 +1,5 @@
-package com.michaelcaxias.catalogs.api.src.repositories;
+package com.michaelcaxias.catalogs.api.src.repositories.database;
 
-import com.michaelcaxias.catalogs.api.src.models.Category;
 import com.michaelcaxias.catalogs.api.src.models.Product;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

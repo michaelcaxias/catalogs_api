@@ -4,7 +4,7 @@ import com.michaelcaxias.catalogs.api.src.controllers.dto.CategoryDto;
 import com.michaelcaxias.catalogs.api.src.domain.services.categories.CategoriesService;
 import com.michaelcaxias.catalogs.api.src.domain.services.categories.mappers.CategoriesMapper;
 import com.michaelcaxias.catalogs.api.src.models.Category;
-import com.michaelcaxias.catalogs.api.src.repositories.CategoriesRepository;
+import com.michaelcaxias.catalogs.api.src.repositories.database.CategoriesRepository;
 import com.michaelcaxias.catalogs.api.unit.UnitTest;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
