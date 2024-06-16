@@ -48,13 +48,13 @@ public class ProductsService implements EntityService<Product, ProductDto> {
 
     @Override
     public Product save(final ProductDto product) {
-        final var category = categoryService.findByID(product.categoryId());
+        final var category = categoryService.findByID(product.categoryID());
 
         if (Objects.isNull(category)) {
             throw new NotFoundException(NOT_FOUND_MESSAGE);
         }
 
-        if (!product.ownerId().equals(category.ownerId())) {
+        if (!product.ownerID().equals(category.ownerID())) {
             throw new ApiException(HttpStatus.FORBIDDEN.name(), CATEGORY_NOT_ASSOCIATED, HttpStatus.FORBIDDEN.value());
         }
 

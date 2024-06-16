@@ -12,7 +12,7 @@ public record Category(
     String id,
     String title,
     @JsonProperty("owner_id")
-    Integer ownerId,
+    Integer ownerID,
     String description
 ) {
 }

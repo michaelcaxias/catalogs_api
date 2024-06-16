@@ -11,7 +11,7 @@ public record CategoryDto(
     String title,
     @NotNull(message = "Owner is required")
     @JsonProperty("owner_id")
-    Integer ownerId,
+    Integer ownerID,
     @NotBlank(message = "Description is required")
     String description
 ) {

@@ -101,8 +101,8 @@ public class ProductsServiceTest extends UnitTest {
         return ProductDto.builder()
                 .title("Product")
                 .description("Product description")
-                .ownerId(1)
-                .categoryId("1")
+                .ownerID(1)
+                .categoryID("1")
                 .build();
     }
 
@@ -110,8 +110,8 @@ public class ProductsServiceTest extends UnitTest {
         return Product.builder()
                 .title("Product")
                 .description("Product description")
-                .ownerId(1)
-                .categoryId("1")
+                .ownerID(1)
+                .categoryID("1")
                 .build();
     }
 
@@ -119,7 +119,7 @@ public class ProductsServiceTest extends UnitTest {
         return Category.builder()
                 .title("Category")
                 .description("Category description")
-                .ownerId(1)
+                .ownerID(1)
                 .build();
     }
 
@@ -127,7 +127,7 @@ public class ProductsServiceTest extends UnitTest {
         return Category.builder()
                 .title("Category")
                 .description("Category description")
-                .ownerId(2)
+                .ownerID(2)
                 .build();
     }
 }

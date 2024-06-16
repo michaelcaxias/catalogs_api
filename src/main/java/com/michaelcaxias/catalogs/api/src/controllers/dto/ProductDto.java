@@ -13,14 +13,13 @@ public record ProductDto(
         String title,
         @NotBlank(message = "Description is required")
         String description,
-
         @NotNull(message = "Owner Id is required")
         @JsonProperty("owner_id")
-        Integer ownerId,
+        Integer ownerID,
         @NotNull(message = "Price is required")
         BigDecimal price,
         @NotBlank(message = "Category Id is required")
         @JsonProperty("category_id")
-        String categoryId
+        String categoryID
 ) {
 }
