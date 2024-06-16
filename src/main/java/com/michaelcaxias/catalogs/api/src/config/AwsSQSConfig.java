@@ -43,14 +43,6 @@ public class AwsSQSConfig {
     }
 
     @Bean
-    public SqsClient sqsClient() {
-        return SqsClient.builder()
-                .region(awsRegion())
-                .credentialsProvider(this::awsCredentials)
-                .build();
-    }
-
-    @Bean
     public SnsClient snsClient() {
         return SnsClient.builder()
                 .region(awsRegion())
