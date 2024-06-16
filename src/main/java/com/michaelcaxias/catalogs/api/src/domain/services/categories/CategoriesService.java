@@ -5,7 +5,7 @@ import com.michaelcaxias.catalogs.api.src.domain.services.EntityService;
 import com.michaelcaxias.catalogs.api.src.domain.services.categories.mappers.CategoriesMapper;
 import com.michaelcaxias.catalogs.api.src.exceptions.NotFoundException;
 import com.michaelcaxias.catalogs.api.src.models.Category;
-import com.michaelcaxias.catalogs.api.src.repositories.CategoriesRepository;
+import com.michaelcaxias.catalogs.api.src.repositories.database.CategoriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

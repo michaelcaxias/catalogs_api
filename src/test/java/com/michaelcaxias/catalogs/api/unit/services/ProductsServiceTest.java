@@ -3,17 +3,13 @@ package com.michaelcaxias.catalogs.api.unit.services;
 import com.michaelcaxias.catalogs.api.src.controllers.dto.CategoryDto;
 import com.michaelcaxias.catalogs.api.src.controllers.dto.ProductDto;
 import com.michaelcaxias.catalogs.api.src.domain.services.EntityService;
-import com.michaelcaxias.catalogs.api.src.domain.services.categories.CategoriesService;
-import com.michaelcaxias.catalogs.api.src.domain.services.categories.mappers.CategoriesMapperImpl;
 import com.michaelcaxias.catalogs.api.src.domain.services.products.ProductsService;
 import com.michaelcaxias.catalogs.api.src.domain.services.products.mappers.ProductsMapper;
-import com.michaelcaxias.catalogs.api.src.exceptions.ApiError;
 import com.michaelcaxias.catalogs.api.src.exceptions.ApiException;
 import com.michaelcaxias.catalogs.api.src.exceptions.NotFoundException;
 import com.michaelcaxias.catalogs.api.src.models.Category;
 import com.michaelcaxias.catalogs.api.src.models.Product;
-import com.michaelcaxias.catalogs.api.src.repositories.CategoriesRepository;
-import com.michaelcaxias.catalogs.api.src.repositories.ProductsRepository;
+import com.michaelcaxias.catalogs.api.src.repositories.database.ProductsRepository;
 import com.michaelcaxias.catalogs.api.unit.UnitTest;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -47,7 +43,7 @@ public class ProductsServiceTest extends UnitTest {
         // Arrange
         doReturn(getValidCategory()).when(categoryService).findByID(anyString());
         doReturn(getValidProduct()).when(repository).insert(any(Product.class));
-        doReturn(getValidProduct()).when(mapper).map(any(ProductDto.class), any(Category.class));
+        doReturn(getValidProduct()).when(mapper).map(any(ProductDto.class));
         // Act
         final var response = service.save(getValidProductDto());
         // Assert
@@ -105,8 +101,8 @@ public class ProductsServiceTest extends UnitTest {
         return ProductDto.builder()
                 .title("Product")
                 .description("Product description")
-                .ownerId(1)
-                .categoryId("1")
+                .ownerID(1)
+                .categoryID("1")
                 .build();
     }
 
@@ -114,8 +110,8 @@ public class ProductsServiceTest extends UnitTest {
         return Product.builder()
                 .title("Product")
                 .description("Product description")
-                .ownerId(1)
-                .category(getValidCategory())
+                .ownerID(1)
+                .categoryID("1")
                 .build();
     }
 
@@ -123,7 +119,7 @@ public class ProductsServiceTest extends UnitTest {
         return Category.builder()
                 .title("Category")
                 .description("Category description")
-                .ownerId(1)
+                .ownerID(1)
                 .build();
     }
 
@@ -131,7 +127,7 @@ public class ProductsServiceTest extends UnitTest {
         return Category.builder()
                 .title("Category")
                 .description("Category description")
-                .ownerId(2)
+                .ownerID(2)
                 .build();
     }
 }

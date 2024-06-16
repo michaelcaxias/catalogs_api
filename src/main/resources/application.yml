@@ -1,0 +1,12 @@
+cloud:
+  aws:
+    region:
+      static: ${AWS_REGION}
+    credentials:
+      access_key: ${AWS_ACCESS_KEY}
+      secret_key: ${AWS_SECRET_KEY}
+    topics:
+      catalog_emit:
+        arn: ${AWS_SNS_CATALOG_EMIT}
+    endpoint:
+      uri: ${AWS_ENDPOINT}

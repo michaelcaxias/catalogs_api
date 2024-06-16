@@ -8,7 +8,7 @@ import com.michaelcaxias.catalogs.api.src.exceptions.ApiException;
 import com.michaelcaxias.catalogs.api.src.exceptions.NotFoundException;
 import com.michaelcaxias.catalogs.api.src.models.Category;
 import com.michaelcaxias.catalogs.api.src.models.Product;
-import com.michaelcaxias.catalogs.api.src.repositories.ProductsRepository;
+import com.michaelcaxias.catalogs.api.src.repositories.database.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -27,8 +27,10 @@ public class ProductsService implements EntityService<Product, ProductDto> {
     @Autowired
     private EntityService<Category, CategoryDto> categoryService;
 
+    @Autowired
+    private ProductsNotifierService notifierService;
+
     private static final String NOT_FOUND_MESSAGE = "Product not found";
-    private static final String BAD_REQUEST_CODE = "bad_request";
     private static final String CATEGORY_NOT_ASSOCIATED = "Category and Product must have the same owner";
 
     @Override
@@ -49,22 +51,23 @@ public class ProductsService implements EntityService<Product, ProductDto> {
 
     @Override
     public Product save(final ProductDto product) {
-        final var category = categoryService.findByID(product.categoryId());
+        final var category = categoryService.findByID(product.categoryID());
 
         if (Objects.isNull(category)) {
             throw new NotFoundException(NOT_FOUND_MESSAGE);
         }
 
-        if (!product.ownerId().equals(category.ownerId())) {
-            throw new ApiException(BAD_REQUEST_CODE, CATEGORY_NOT_ASSOCIATED, HttpStatus.BAD_REQUEST.value());
+        if (!product.ownerID().equals(category.ownerID())) {
+            throw new ApiException(HttpStatus.FORBIDDEN.name(), CATEGORY_NOT_ASSOCIATED, HttpStatus.FORBIDDEN.value());
         }
 
-        // TODO: the field category must be updated in the catalog consumer service, updating json and this field
-        // TODO: a message will be sent when updated/saved with the values
+        final var productModel = mapper.map(product);
 
-        final var productModel = mapper.map(product, category);
+        final Product productSaved = repository.insert(productModel);
 
-        return repository.insert(productModel);
+        notifierService.notify(product.ownerID());
+
+        return productSaved;
     }
 
     @Override
@@ -75,6 +78,10 @@ public class ProductsService implements EntityService<Product, ProductDto> {
 
         final var productModel = mapper.map(id, product);
 
-        return repository.save(productModel);
+        final Product productSaved = repository.save(productModel);
+
+        notifierService.notify(product.ownerID());
+
+        return productSaved;
     }
 }
