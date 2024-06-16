@@ -8,5 +8,3 @@ cloud:
     topics:
       catalog_emit:
         arn: ${AWS_SNS_CATALOG_EMIT}
-    endpoint:
-      uri: ${AWS_ENDPOINT}

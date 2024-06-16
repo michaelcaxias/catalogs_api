@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "55c87231-69b5-48b9-8ffe-a86e07cb0c67",
+		"name": "Catalogs API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32473875"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"owner\": 2,\r\n    \"title\": \"Restaurante\",\r\n    \"description\": \"Um lugar para se alimentar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/catalogs-api/v1/categories",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalogs-api",
+						"v1",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"owner\": 2,\r\n    \"title\": \"Restaurante\",\r\n    \"description\": \"Um lugar para se alimentar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/catalogs-api/v1/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalogs-api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"owner\": 2,\r\n    \"title\": \"Restaurante\",\r\n    \"description\": \"Um lugar para se alimentar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/catalogs-api/v1/products/65af1ff9b511fb712f8fb803",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalogs-api",
+						"v1",
+						"products",
+						"65af1ff9b511fb712f8fb803"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"owner\": 2,\r\n    \"title\": \"Restaurante\",\r\n    \"description\": \"Um lugar para se alimentar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/catalogs-api/v1/categories/666f279e39368f0f72bebd09",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalogs-api",
+						"v1",
+						"categories",
+						"666f279e39368f0f72bebd09"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"owner_id\": 2,\r\n    \"title\": \"Restaurante\",\r\n    \"description\": \"Um lugar para se alimentar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/catalogs-api/v1/categories",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalogs-api",
+						"v1",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Agua Bem Bem mais cara\",\r\n    \"description\": \"Agua muito cara\",\r\n    \"owner_id\": 2,\r\n    \"price\": 500.00,\r\n    \"category_id\": \"666f34507cab60200d43ea07\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/catalogs-api/v1/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalogs-api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"owner_id\": 10,\r\n    \"title\": \"Restaurante\",\r\n    \"description\": \"Um lugar do caralho\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/catalogs-api/v1/categories/65af1ff9b511fb712f8fb803",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalogs-api",
+						"v1",
+						"categories",
+						"65af1ff9b511fb712f8fb803"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "catalogs consumer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"owner_id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/catalogs-api/v1/catalogs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"catalogs-api",
+						"v1",
+						"catalogs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
