@@ -7,6 +7,7 @@ import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.AwsCredentials;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.sqs.SqsClient;
 
 @Configuration
 public class AwsSQSConfig {
@@ -31,6 +32,14 @@ public class AwsSQSConfig {
     @Bean
     public S3Client s3Client() {
         return S3Client.builder()
+                .region(awsRegion())
+                .credentialsProvider(this::awsCredentials)
+                .build();
+    }
+
+    @Bean
+    public SqsClient sqsClient() {
+        return SqsClient.builder()
                 .region(awsRegion())
                 .credentialsProvider(this::awsCredentials)
                 .build();

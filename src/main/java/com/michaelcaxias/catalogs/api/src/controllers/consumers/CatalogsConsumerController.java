@@ -20,8 +20,8 @@ public class CatalogsConsumerController {
     private ConsumerService<Integer> catalogsConsumerService;
 
     @PostMapping("/catalogs")
-    public void save(final @RequestBody @Valid CatalogDto CatalogDto) {
-        catalogsConsumerService.process(CatalogDto.ownerID());
+    public void save(final @RequestBody @Valid CatalogDto message) {
+        catalogsConsumerService.process(message.ownerID());
     }
 
 }
