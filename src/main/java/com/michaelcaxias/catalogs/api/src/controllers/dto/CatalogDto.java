@@ -6,6 +6,6 @@ import jakarta.validation.constraints.NotNull;
 public record CatalogDto(
         @NotNull(message = "Owner Id is required")
         @JsonProperty("owner_id")
-        Number ownerID
+        Integer ownerID
 ) {
 }
